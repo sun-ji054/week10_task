@@ -88,11 +88,13 @@
 
 .blogbar li{
   float: right;
-  justify-content: right-end;
+  /*justify-content: right-end;*/
   padding-left: 20px;
   -webkit-text-fill-color: white;
   list-style: none;
 }
+.blogbar a {float: right;
+   -webkit-text-fill-color: white;list-style: none;}
 
 .wrapper {
   flex: 1;
@@ -150,4 +152,43 @@
   grid-column: 4/5;
   grid-row: 1/5;
   border-radius: 20px;
+}
+
+.loginPage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('../public/loginBackground.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.loginBox{
+  background-color: #ffc9eaad;
+  width: 400px; height: 300px;
+  border-radius: 20px;
+}
+
+.loginBox h1{
+  text-align: center;
+  -webkit-text-fill-color:white;
+  margin-bottom: 30px;
+}
+.loginBox input, button{
+  display: block;
+  margin: 10px auto;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.793);
+  outline: none;
+}
+
+input[type="checkbox"], label {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 5px;
+  -webkit-text-fill-color: white;
+  padding-left: 20px;
 }

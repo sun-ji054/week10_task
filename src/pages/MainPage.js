@@ -6,7 +6,7 @@ import Box from '../components/Box';
 
 export default function MainPage() {
   return (
-    <div>
+    <div className="mainContent">
       <div className="wrapper">
       <ProfileImg />
       <Info />

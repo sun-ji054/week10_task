@@ -10,21 +10,24 @@ import { Routes, Route, useNavigate} from 'react-router-dom';
 import ListPage from "./pages/ListPage";
 import WritePage from "./pages/WritePage";
 import MainPage from "./pages/MainPage";
+import LoginPage from "./pages/LoginPage";
+//import loginAPI from "./loginAPI";
+//import api from "./api";
 
 
 export default function App() {
   const [showOpening, setShowOpening] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
 useEffect(() => {
     if (showOpening) {
       const timer = setTimeout(() => {
         setShowOpening(false);
-        navigate("/", { replace: true });
       }, 4000);
       return () => clearTimeout(timer);
     }
-  }, [showOpening, navigate]);
+  }, [showOpening]);
 
   if (showOpening) {
     return (
@@ -33,9 +36,21 @@ useEffect(() => {
       </div>
     );
   }
+if (!isLoggedIn) {
+    return (
+      <div className="appContainer">
+        <LoginPage
+          onLoginSuccess={() => {
+            setIsLoggedIn(true);
+            navigate("/", { replace: true }); // 메인페이지 이동
+          }}
+        />
+      </div>
+    );
+  }
 
   return (
-    <div className="mainContent">
+    <div className="appContainer">
       <Blogbar />
       <div className="mainContent">
         <Routes>
@@ -47,3 +62,4 @@ useEffect(() => {
     </div>
   );
 }
+

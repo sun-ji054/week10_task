@@ -8,7 +8,7 @@ export default function Blogbar() {
       <ul>
         <li><Link to="/writePage">글쓰기</Link></li>
         <li><Link to="/listPage">글 목록</Link></li>
-        <li><a href="#blabla">blabla</a></li>
+        <li><Link to="/">home</Link></li>
       </ul>
     </nav>
   );
