@@ -159,13 +159,15 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  /* background-color: #ff5cbe;
+  background: linear-gradient(to bottom,#ff5cbe,white) */
   background-image: url('../public/loginBackground.jpg');
   background-position: center;
   background-size: cover;
 }
 
 .loginBox{
-  background-color: #ffc9eaad;
+  background-color: #ff94d4ae;
   width: 400px; height: 300px;
   border-radius: 20px;
 }
@@ -179,8 +181,8 @@
   display: block;
   margin: 10px auto;
   padding: 10px 30px;
-  border: none;
   border-radius: 15px;
+  border: none;
   background-color: rgba(255, 255, 255, 0.793);
   outline: none;
 }
