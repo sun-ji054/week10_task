@@ -30,11 +30,8 @@ function LoginPage({ onLoginSuccess }) {
                 value={pw}
                 onChange={(e) => setPw(e.target.value)}
             />
-            <label for="checkbox">
-  <input type="checkbox" id="checkbox" />
-  Remember me
-</label>
-
+            <input type='checkbox' id='checkbox'></input>
+            <label for='checkbox'>Remember me</label>
             <button onClick={handleLogin}>Login</button>
             </div>
         </div>
