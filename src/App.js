@@ -6,19 +6,19 @@ import Blogbar from './components/Blogbar';
 //import Box from './components/Box';
 //import ProfileImg from './components/ProfileImg';
 //import Info from "./components/Info";
-import { Routes, Route, useNavigate} from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import ListPage from "./pages/ListPage";
 import WritePage from "./pages/WritePage";
 import MainPage from "./pages/MainPage";
-import LoginPage from "./pages/LoginPage";
+// import LoginPage from "./pages/LoginPage";
 //import loginAPI from "./loginAPI";
 //import api from "./api";
 
 
 export default function App() {
   const [showOpening, setShowOpening] = useState(true);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const navigate = useNavigate();
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const navigate = useNavigate();
 
 useEffect(() => {
     if (showOpening) {
@@ -36,15 +36,22 @@ useEffect(() => {
       </div>
     );
   }
-if (!isLoggedIn) {
+// if (!isLoggedIn) {
+//     return (
+//       <div className="appContainer">
+//         <LoginPage
+//           onLoginSuccess={() => {
+//             setIsLoggedIn(true);
+//             navigate("/", { replace: true });
+//           }}
+//         />
+//       </div>
+//     );
+//   }
+if (showOpening) {
     return (
       <div className="appContainer">
-        <LoginPage
-          onLoginSuccess={() => {
-            setIsLoggedIn(true);
-            navigate("/", { replace: true });
-          }}
-        />
+        <Opening />
       </div>
     );
   }
