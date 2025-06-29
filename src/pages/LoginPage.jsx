@@ -49,7 +49,7 @@ function LoginPage() {
                 </button>
             </form>
             <div className="auth-link">
-                계정이 없으신가요? <Link to="/register">회원가입</Link>
+                계정이 없으신가요? <Link to="/signUpPage">회원가입</Link>
             </div>
         </div>
     );

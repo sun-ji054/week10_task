@@ -44,13 +44,6 @@ useEffect(() => {
     );
   }
 
-if (showOpening) {
-    return (
-      <div className="appContainer">
-        <Opening />
-      </div>
-    );
-  }
 
   return (
     <div className="appContainer">

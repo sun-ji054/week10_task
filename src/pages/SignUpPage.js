@@ -23,7 +23,7 @@ function Register() {
         try {
             await register(username, email, password1, password2, nickname, university, location);
             alert('회원가입이 완료되었습니다! 로그인해주세요.');
-            navigate('/login');
+            navigate('/loginPage');
         } catch (err) {
             if (err.response && err.response.data) {
                 const messages = Object.values(err.response.data).flat().join(' ');

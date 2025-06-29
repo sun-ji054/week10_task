@@ -7,20 +7,19 @@
 .write-title {
     color: #333;
     font-size: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 10px;
     text-align: center;
 }
 
 .write-form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
 }
 
 .form-group label {
@@ -51,7 +50,7 @@
 .button-group {
     display: flex;
     gap: 1rem;
-    margin-top: 1rem;
+    margin-top: 10px;
 }
 
 .submit-button,
