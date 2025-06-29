@@ -10,7 +10,7 @@ export default function Blogbar() {
         <li><Link to="/loginPage">로그인</Link></li>
         <li><Link to="/blogWrite">글쓰기</Link></li>
         <li><Link to="/listPage">글 목록</Link></li>
-        <li><Link to="/">home</Link></li>
+        <li><Link to="/mainPage">home</Link></li>
       </ul>
     </nav>
   );

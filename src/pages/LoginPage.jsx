@@ -16,7 +16,7 @@ function LoginPage() {
             const data = await login(username, password);
             localStorage.setItem('token', data.token);
             alert('로그인 성공!');
-            navigate('/');
+            navigate('/mainPage');
         } catch (err) {
             console.error('로그인 실패:', err);
             setError('아이디 또는 비밀번호가 올바르지 않습니다.');

@@ -10,13 +10,16 @@ import BlogWrite from './pages/BlogWrite';
 import SignUpPage from './pages/SignUpPage';
 
 
+
 export default function App() {
+
 
   // posts 상태를 상위에서 관리 (localStorage 연동)
     const [posts, setPosts] = useState(() => {
         const saved = localStorage.getItem('posts');
         return saved ? JSON.parse(saved) : [];
     });
+
 
     // 글 추가 함수
     const addPost = (post) => {
@@ -25,7 +28,9 @@ export default function App() {
         localStorage.setItem('posts', JSON.stringify(newPosts));
     };
 
+
   const [showOpening, setShowOpening] = useState(true);
+
 
 useEffect(() => {
     if (showOpening) {
@@ -36,6 +41,7 @@ useEffect(() => {
     }
   }, [showOpening]);
 
+
   if (showOpening) {
     return (
       <div className="appContainer">
@@ -45,12 +51,13 @@ useEffect(() => {
   }
 
 
+
   return (
     <div className="appContainer">
       <Blogbar />
       <div className="mainContent">
         <Routes>
-          <Route path="/" element={<MainPage />} />
+          <Route path="/mainPage" element={<MainPage />} />
           <Route path="/listPage" element={<ListPage posts={posts}/>} />
           <Route path="/loginPage" element={<LoginPage />} />
           <Route path="/signUpPage" element={<SignUpPage />} />
@@ -60,4 +67,3 @@ useEffect(() => {
     </div>
   );
 }
-
