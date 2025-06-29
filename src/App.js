@@ -51,11 +51,10 @@ useEffect(() => {
       <div className="mainContent">
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/listPage" element={<ListPage />} />
-          <Route path="/blogWrite" element={<BlogWrite />} />
+          <Route path="/listPage" element={<ListPage posts={posts}/>} />
           <Route path="/loginPage" element={<LoginPage />} />
           <Route path="/signUpPage" element={<SignUpPage />} />
-          <Route path="/write" element={<BlogWrite addPost={addPost} />} />
+          <Route path="/blogWrite" element={<BlogWrite addPost={addPost} />} />
         </Routes>
       </div>
     </div>

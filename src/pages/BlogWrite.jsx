@@ -28,7 +28,7 @@ function BlogWrite({ addPost }) {
             created_at: new Date().toISOString(),
         });
         alert('글이 성공적으로 작성되었습니다.');
-        navigate('/blog');
+        navigate('/listPage');
         setIsSubmitting(false);
     };
 
@@ -67,7 +67,7 @@ function BlogWrite({ addPost }) {
                     <button
                         type="button"
                         className="cancel-button"
-                        onClick={() => navigate('/blog')}
+                        onClick={() => navigate('/listPage')}
                         disabled={isSubmitting}
                     >
                         취소
