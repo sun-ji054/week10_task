@@ -1,40 +1,56 @@
 import React, { useState } from 'react';
-import {login} from "../login/loginAPI";
-import "../App.css";
+import { useNavigate, Link } from 'react-router-dom';
+import { login } from '../api/loginAPI';
 
-function LoginPage({ onLoginSuccess }) {
-    const [id, setId] = useState('');
-    const [pw, setPw] = useState('');
+function LoginPage() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
 
-    const handleLogin = async () => {
-        const result = await login(id, pw);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError('');
 
-        if (result) {
-            console.log('로그인 결과:', result);
-            onLoginSuccess();
-        } else {
-            console.log('로그인 실패');
-            alert("로그인 실패")
+        try {
+            const data = await login(username, password);
+            localStorage.setItem('token', data.token);
+            alert('로그인 성공!');
+            navigate('/blog');
+        } catch (err) {
+            console.error('로그인 실패:', err);
+            setError('아이디 또는 비밀번호가 올바르지 않습니다.');
         }
     };
 
     return (
-        <div className='loginPage'>
-             <div className='loginBox'>
-            <div>
-                <h1>Login</h1>
-            <input type="text" placeholder="Username" value={id} onChange={(e) => setId(e.target.value)} />
-            <input
-                type="password"
-                placeholder="Password"
-                value={pw}
-                onChange={(e) => setPw(e.target.value)}
-            />
-            <input type='checkbox' id='checkbox'></input>
-            <label for='checkbox'>Remember me</label>
-            <button onClick={handleLogin}>Login</button>
+        <div className="auth-container">
+            <h1 className="auth-title">로그인</h1>
+            <form className="auth-form" onSubmit={handleSubmit}>
+                <input
+                    className="auth-input"
+                    type="text"
+                    placeholder="아이디"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                />
+                <input
+                    className="auth-input"
+                    type="password"
+                    placeholder="비밀번호"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                />
+                {error && <div className="auth-error">{error}</div>}
+                <button className="auth-button" type="submit">
+                    로그인
+                </button>
+            </form>
+            <div className="auth-link">
+                계정이 없으신가요? <Link to="/register">회원가입</Link>
             </div>
-        </div>
         </div>
     );
 }

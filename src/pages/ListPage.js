@@ -1,37 +1,37 @@
-import React, { useEffect, useState } from 'react';
-import axios from "axios";
-import { ListContainer, ListAll } from './Liststyles';
+import React from 'react';
+import './ListPage.css';
+import { Link } from 'react-router-dom';
 
-
-function ListPage() {
-  const [posts, setPosts] = useState([]);
-   const getPosts = async () => {
-        try {
-            const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
-            console.log('응답 완료');
-            setPosts(response.data);
-        } catch (error) {
-            console.error('에러 : ', error);
-        }
-    }
-
-    useEffect(() => {
-        getPosts();
-    }, []);
-
-
+function ListPage({ posts = [] }) { 
   return (
-        <ListContainer>
-            {posts.map((post) => ( 
-                <div key={post.id}>
-                  <ListAll>
-                       <h5>제목: {post.title}</h5>
-                    <p>내용: {post.body}</p>
-                  </ListAll>
-                </div>
-            ))}
-        </ListContainer>
-    );
-};
+    <div className="blog-list-container">
+      <div className="blog-header">
+        <h1 className="blog-title">블로그</h1>
+        <Link to="/Blogwrite" className="write-button">
+            새 글 작성
+        </Link>
+      </div>
+      <div className="post-grid">
+        {posts.length === 0 ? (
+          <p className="no-posts">작성된 글이 없습니다.</p>
+        ) : (
+          posts.map((post) => (
+            <div key={post.id} className="post-card">
+              <div className="post-content">
+                <h2 className="post-title">{post.title}</h2>
+                <p className="post-date">
+                  {new Date(post.created_at).toLocaleDateString()}
+                </p>
+                <p className="post-summary">
+                  {post.content.substring(0, 150)}...
+                </p>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
+    </div>
+  );
+}
 
 export default ListPage;
