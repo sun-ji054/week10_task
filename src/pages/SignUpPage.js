@@ -100,7 +100,7 @@ function Register() {
                 </button>
             </form>
             <div className="auth-link">
-                이미 계정이 있으신가요? <Link to="/login">로그인</Link>
+                이미 계정이 있으신가요? <Link to="/loginPage">로그인</Link>
             </div>
         </div>
     );
